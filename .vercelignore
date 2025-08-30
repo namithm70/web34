@@ -5,7 +5,6 @@ packages/
 contracts/
 *.md
 .gitignore
-turbo.json
 
 # Keep only the web app
 !apps/web/**
