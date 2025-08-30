@@ -89,9 +89,9 @@ export function StakingInterface() {
           </button>
         </div>
 
-        <div className="text-sm text-gray-600">
-          {chainFilteredPools.length} pool{chainFilteredPools.length !== 1 ? 's' : ''} available
-        </div>
+                 <div className="text-sm text-gray-600">
+           {filteredPools.length} pool{filteredPools.length !== 1 ? 's' : ''} available
+         </div>
       </div>
 
       {/* Pool Grid */}
@@ -100,9 +100,9 @@ export function StakingInterface() {
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
           <p className="text-gray-600 mt-4">Loading staking pools...</p>
         </div>
-      ) : chainFilteredPools.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {chainFilteredPools.map((pool) => (
+             ) : filteredPools.length > 0 ? (
+         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+           {filteredPools.map((pool) => (
             <PoolCard
               key={pool.id}
               pool={pool}
