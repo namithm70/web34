@@ -18,6 +18,11 @@ const nextConfig = {
   },
   // Enable experimental features if needed
   transpilePackages: [],
+  // ESLint configuration
+  eslint: {
+    ignoreDuringBuilds: false,
+    dirs: ['src'],
+  },
 }
 
 module.exports = nextConfig

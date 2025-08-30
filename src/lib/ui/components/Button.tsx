@@ -42,6 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
   if (asChild && React.isValidElement(children)) {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return React.cloneElement(children as any, {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       className: cn(buttonClasses, (children as any).props?.className),
       disabled: disabled || loading,
       ...props
