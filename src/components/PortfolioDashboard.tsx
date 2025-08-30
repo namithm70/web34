@@ -17,7 +17,7 @@ const MOCK_PORTFOLIO = {
   positions: [
     {
       id: 'pos-1',
-      type: 'staking',
+      type: 'staking' as const,
       token: 'USDT',
       amount: 5000,
       value: 5000,
@@ -27,7 +27,7 @@ const MOCK_PORTFOLIO = {
     },
     {
       id: 'pos-2',
-      type: 'farming',
+      type: 'farming' as const,
       token: 'USDT-WBNB LP',
       amount: 2500,
       value: 2500,
@@ -37,7 +37,7 @@ const MOCK_PORTFOLIO = {
     },
     {
       id: 'pos-3',
-      type: 'wallet',
+      type: 'wallet' as const,
       token: 'WBNB',
       amount: 2.5,
       value: 7920,
