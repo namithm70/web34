@@ -122,7 +122,7 @@ export function SwapInterface() {
     try {
       const { apiClient } = await import('@/lib/api')
       const response = await apiClient.getSwapQuote(
-        chainId.toString(),
+        chainId?.toString() || '',
         fromToken.address,
         toToken.address,
         fromAmount,
