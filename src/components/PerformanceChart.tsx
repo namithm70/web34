@@ -1,7 +1,7 @@
 'use client'
 
 import { formatUSD } from '@/lib/sdk'
-import { TrendingUpIcon, TrendingDownIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/outline'
 
 interface HistoryPoint {
   date: string
@@ -52,9 +52,9 @@ export function PerformanceChart({ history }: PerformanceChartProps) {
             isPositive ? 'text-green-600' : 'text-red-600'
           }`}>
             {isPositive ? (
-              <TrendingUpIcon className="w-4 h-4" />
+              <ArrowTrendingUpIcon className="w-4 h-4" />
             ) : (
-              <TrendingDownIcon className="w-4 h-4" />
+              <ArrowTrendingDownIcon className="w-4 h-4" />
             )}
             <span>
               {isPositive ? '+' : ''}{formatUSD(change24h)} ({changePercent24h.toFixed(2)}%)
