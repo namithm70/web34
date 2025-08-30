@@ -7,7 +7,7 @@ import { Button } from '@/lib/ui'
 import { PortfolioOverview } from './PortfolioOverview'
 import { PositionsList } from './PositionsList'
 import { PerformanceChart } from './PerformanceChart'
-import { RefreshCwIcon, DownloadIcon } from '@heroicons/react/24/outline'
+import { ArrowPathIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 
 // Mock portfolio data
 const MOCK_PORTFOLIO = {
@@ -146,14 +146,14 @@ export function PortfolioDashboard() {
             onClick={handleRefresh}
             loading={isRefreshing}
           >
-            <RefreshCwIcon className="w-4 h-4 mr-2" />
+            <ArrowPathIcon className="w-4 h-4 mr-2" />
             Refresh
           </Button>
           <Button
             variant="outline"
             onClick={handleExport}
           >
-            <DownloadIcon className="w-4 h-4 mr-2" />
+            <ArrowDownTrayIcon className="w-4 h-4 mr-2" />
             Export
           </Button>
         </div>
