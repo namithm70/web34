@@ -35,14 +35,14 @@ export function FarmModal({ pool, onClose }: FarmModalProps) {
     address: masterChefAddress,
     abi: MASTER_CHEF_ABI,
     functionName: 'userInfo',
-    args: address && pool.id ? [pool.id.split('-')[1], address] : undefined, // Extract pool ID number
+    args: address && pool.id ? [BigInt(pool.id.split('-')[1])] : undefined, // Extract pool ID number
   })
 
   const { data: pendingRewards } = useReadContract({
     address: masterChefAddress,
     abi: MASTER_CHEF_ABI,
     functionName: 'pendingReward',
-    args: address && pool.id ? [pool.id.split('-')[1], address] : undefined,
+    args: address && pool.id ? [BigInt(pool.id.split('-')[1])] : undefined,
   })
 
   // Write contract functions
@@ -110,7 +110,7 @@ export function FarmModal({ pool, onClose }: FarmModalProps) {
         address: masterChefAddress,
         abi: MASTER_CHEF_ABI,
         functionName: 'withdraw',
-        args: [BigInt(poolId), 0n], // Withdraw 0 to claim rewards
+        args: [BigInt(poolId), BigInt(0)], // Withdraw 0 to claim rewards
       })
     } catch (error) {
       console.error('Claim failed:', error)
@@ -123,7 +123,7 @@ export function FarmModal({ pool, onClose }: FarmModalProps) {
     if (activeTab === 'stake') {
       setAmount(lpBalance ? formatUnits(lpBalance, pool.token.decimals) : '0')
     } else if (activeTab === 'unstake') {
-      const stakedAmount = stakedBalance ? stakedBalance[0] : 0n
+      const stakedAmount = stakedBalance ? stakedBalance[0] : BigInt(0)
       setAmount(formatUnits(stakedAmount, pool.token.decimals))
     }
   }
