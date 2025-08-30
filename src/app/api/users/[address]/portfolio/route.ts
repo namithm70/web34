@@ -1,5 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { UserPosition } from '@defi-app/sdk'
+
+interface UserPosition {
+  address: string
+  poolId: string
+  deposited: string
+  pendingRewards: string
+  lastAction: number
+  lockExpiry?: number
+}
 
 interface RouteParams {
   params: {
