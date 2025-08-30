@@ -21,10 +21,11 @@ export function StakingInterface() {
         const { apiClient } = await import('@/lib/api')
         const response = await apiClient.getPools(chainId?.toString(), 'stake')
 
-        if (response.data) {
+        if (response.data && Array.isArray(response.data)) {
           setPools(response.data)
         } else {
           console.error('Error fetching pools:', response.error)
+          setPools([]) // Set empty array as fallback
         }
       } catch (error) {
         console.error('Error fetching pools:', error)
