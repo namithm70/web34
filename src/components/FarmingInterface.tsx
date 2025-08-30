@@ -27,6 +27,7 @@ export function FarmingInterface() {
           setPools(response.data)
         } else {
           console.error('Error fetching farm pools:', response.error)
+          setPools([]) // Set empty array as fallback
         }
       } catch (error) {
         console.error('Error fetching farm pools:', error)
