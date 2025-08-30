@@ -1,13 +1,14 @@
-# Exclude packages directory from Vercel build
-packages/
+# Exclude development and build files
+node_modules/
+.next/
+.git/
+*.log
 
-# Exclude indexer app (using Next.js API routes instead)
-apps/indexer/
-
-# Exclude contracts and other non-deployment files
-contracts/
+# Exclude documentation and config files
 *.md
 .gitignore
+README.md
+DEPLOYMENT.md
 
-# Keep only the web app
-!apps/web/**
+# Exclude contracts (not needed for web app)
+contracts/
