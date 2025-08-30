@@ -1,6 +1,9 @@
 # Exclude packages directory from Vercel build
 packages/
 
+# Exclude indexer app (using Next.js API routes instead)
+apps/indexer/
+
 # Exclude contracts and other non-deployment files
 contracts/
 *.md
