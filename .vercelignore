@@ -12,3 +12,6 @@ DEPLOYMENT.md
 
 # Exclude contracts (not needed for web app)
 contracts/
+
+# Exclude indexer app (NestJS backend not needed for web deployment)
+apps/indexer/
