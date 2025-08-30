@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { UserPosition } from '@defi-app/sdk'
 
-interface RouteParams {
-  params: {
-    address: string
-  }
+interface UserPosition {
+  address: string
+  poolId: string
+  deposited: string
+  pendingRewards: string
+  lastAction: number
+  lockExpiry?: number
 }
 
 // Mock user positions - in production, this would come from a database
@@ -37,7 +39,11 @@ const mockUserPositions: { [address: string]: UserPosition[] } = {
   ],
 }
 
-export async function GET(request: NextRequest, { params }: RouteParams) {
+export async function GET(
+  request: NextRequest,
+  context: { params: Promise<{ address: string }> }
+) {
+  const params = await context.params
   try {
     const address = params.address.toLowerCase()
     const positions = mockUserPositions[address] || []

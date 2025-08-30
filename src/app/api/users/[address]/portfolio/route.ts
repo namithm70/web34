@@ -41,8 +41,9 @@ const mockUserPositions: { [address: string]: UserPosition[] } = {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { address: string } }
+  context: { params: Promise<{ address: string }> }
 ) {
+  const params = await context.params
   try {
     const address = params.address.toLowerCase()
     const positions = mockUserPositions[address] || []
