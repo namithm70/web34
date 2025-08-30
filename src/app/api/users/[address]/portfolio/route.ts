@@ -9,12 +9,6 @@ interface UserPosition {
   lockExpiry?: number
 }
 
-interface RouteParams {
-  params: {
-    address: string
-  }
-}
-
 // Mock user positions - in production, this would come from a database
 const mockUserPositions: { [address: string]: UserPosition[] } = {
   '0x1234567890123456789012345678901234567890': [
@@ -45,7 +39,10 @@ const mockUserPositions: { [address: string]: UserPosition[] } = {
   ],
 }
 
-export async function GET(request: NextRequest, { params }: RouteParams) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: { address: string } }
+) {
   try {
     const address = params.address.toLowerCase()
     const positions = mockUserPositions[address] || []
