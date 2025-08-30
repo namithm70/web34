@@ -246,7 +246,7 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
                 <div className="text-sm">
                   <p className="font-medium text-yellow-800">Early Unstaking Penalty</p>
                                      <p className="text-yellow-700 mt-1">
-                     This staking pool doesn't have locking functionality.
+                     This staking pool doesn&apos;t have locking functionality.
                    </p>
                 </div>
               </div>
