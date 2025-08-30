@@ -41,7 +41,7 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
     address: stakingPoolAddress,
     abi: STAKING_POOL_ABI,
     functionName: 'earned',
-    args: address ? [address] : undefined,
+    args: undefined,
   })
 
   const { data: lockExpiry } = useReadContract({
