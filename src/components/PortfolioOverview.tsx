@@ -1,14 +1,17 @@
 'use client'
 
 import { formatUSD, formatPercentage } from '@/lib/sdk'
-import { TrendingUpIcon, TrendingDownIcon, CubeIcon, BanknotesIcon, ChartBarIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, ArrowTrendingDownIcon, CubeIcon, BanknotesIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 
 interface PortfolioOverviewProps {
   portfolio: {
     totalValue: number
     totalChange24h: number
     totalChangePercent24h: number
-    positions: any[]
+    positions: Array<{
+    type: string
+    [key: string]: unknown
+  }>
   }
   balance?: {
     formatted: string
@@ -32,9 +35,9 @@ export function PortfolioOverview({ portfolio, balance }: PortfolioOverviewProps
             isPositive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
           }`}>
             {isPositive ? (
-              <TrendingUpIcon className="w-4 h-4" />
+              <ArrowTrendingUpIcon className="w-4 h-4" />
             ) : (
-              <TrendingDownIcon className="w-4 h-4" />
+              <ArrowTrendingDownIcon className="w-4 h-4" />
             )}
             <span className="text-sm font-medium">
               {isPositive ? '+' : ''}{formatUSD(portfolio.totalChange24h)} ({formatPercentage(portfolio.totalChangePercent24h)})
@@ -95,7 +98,7 @@ export function PortfolioOverview({ portfolio, balance }: PortfolioOverviewProps
           <div className="flex items-center justify-between py-3 border-b border-gray-100">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-                <TrendingUpIcon className="w-4 h-4 text-green-600" />
+                <ArrowTrendingUpIcon className="w-4 h-4 text-green-600" />
               </div>
               <div>
                 <p className="font-medium text-gray-900">Staked 1000 USDT</p>

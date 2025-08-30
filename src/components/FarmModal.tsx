@@ -6,7 +6,7 @@ import { parseUnits, formatUnits, erc20Abi } from 'viem'
 import { Pool, formatPercentage, formatTokenAmount } from '@/lib/sdk'
 import { Button } from '@/lib/ui'
 import { MASTER_CHEF_ABI } from '@/lib/sdk'
-import { XMarkIcon, ArrowDownIcon, ArrowUpIcon, ClockIcon, ExternalLinkIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon, ArrowDownIcon, ArrowUpIcon, ClockIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
 interface FarmModalProps {
   pool: Pool
@@ -170,7 +170,7 @@ export function FarmModal({ pool, onClose }: FarmModalProps) {
             className="flex items-center justify-center space-x-2 text-sm text-blue-700 hover:text-blue-800 font-medium"
           >
             <span>Get {pool.token.symbol.replace(' LP', '').replace('-', '/')} LP Tokens</span>
-            <ExternalLinkIcon className="w-4 h-4" />
+                            <ArrowTopRightOnSquareIcon className="w-4 h-4" />
           </a>
         </div>
 

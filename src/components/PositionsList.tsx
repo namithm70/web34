@@ -137,7 +137,7 @@ export function PositionsList({ positions }: PositionsListProps) {
           <div className="text-gray-400 text-6xl mb-4">📊</div>
           <h3 className="text-xl font-semibold text-gray-900 mb-2">No positions found</h3>
           <p className="text-gray-600 mb-6">
-            You don't have any active positions yet. Start by staking tokens or providing liquidity.
+            You don&apos;t have any active positions yet. Start by staking tokens or providing liquidity.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button>

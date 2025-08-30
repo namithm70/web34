@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
     let totalUsers = 12500
     let totalPools = 24
     let totalVolume24h = 2500000
-    let averageAPR = 28.5
+    const averageAPR = 28.5
 
     // Adjust based on chain
     if (chainId === '56') {
