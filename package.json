@@ -4,11 +4,10 @@
   "description": "Non-custodial DeFi web app with trading, staking, and farming",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "apps/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "echo 'Build handled by Vercel'",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
     "test": "turbo run test",

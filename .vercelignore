@@ -1,0 +1,11 @@
+# Exclude packages directory from Vercel build
+packages/
+
+# Exclude contracts and other non-deployment files
+contracts/
+*.md
+.gitignore
+turbo.json
+
+# Keep only the web app
+!apps/web/**
