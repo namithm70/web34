@@ -44,12 +44,13 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
     args: undefined,
   })
 
-  const { data: lockExpiry } = useReadContract({
-    address: stakingPoolAddress,
-    abi: STAKING_POOL_ABI,
-    functionName: 'userInfo',
-    args: address ? [address] : undefined,
-  })
+  // Note: This staking pool doesn't have locking functionality
+  // const { data: lockExpiry } = useReadContract({
+  //   address: stakingPoolAddress,
+  //   abi: STAKING_POOL_ABI,
+  //   functionName: 'userInfo',
+  //   args: address ? [address] : undefined,
+  // })
 
   // Write contract functions
   const { writeContract, data: hash } = useWriteContract()
@@ -129,8 +130,9 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
     }
   }
 
-  const lockExpiryDate = lockExpiry ? new Date(Number(lockExpiry) * 1000) : null
-  const isLocked = lockExpiryDate && lockExpiryDate > new Date()
+  // This staking pool doesn't have locking functionality
+  const lockExpiryDate = null
+  const isLocked = false
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
@@ -204,14 +206,7 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
                 {pendingRewards ? formatTokenAmount(pendingRewards.toString(), pool.rewardToken.decimals) : '0'} {pool.rewardToken.symbol}
               </span>
             </div>
-            {isLocked && lockExpiryDate && (
-              <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Lock Expires:</span>
-                <span className="font-medium text-orange-600">
-                  {lockExpiryDate.toLocaleDateString()}
-                </span>
-              </div>
-            )}
+                         {/* Lock expiry information removed - this staking pool doesn't have locking */}
           </div>
 
           {/* Amount Input */}
@@ -250,10 +245,9 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
                 <ClockIcon className="w-5 h-5 text-yellow-600 mt-0.5 flex-shrink-0" />
                 <div className="text-sm">
                   <p className="font-medium text-yellow-800">Early Unstaking Penalty</p>
-                  <p className="text-yellow-700 mt-1">
-                    Your tokens are locked until {lockExpiryDate?.toLocaleDateString()}.
-                    Early withdrawal will incur a penalty.
-                  </p>
+                                     <p className="text-yellow-700 mt-1">
+                     This staking pool doesn't have locking functionality.
+                   </p>
                 </div>
               </div>
             </div>
