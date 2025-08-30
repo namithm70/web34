@@ -23,7 +23,7 @@ export function FarmingInterface() {
         const { apiClient } = await import('@/lib/api')
         const response = await apiClient.getPools(chainId?.toString(), 'farm')
 
-        if (response.data) {
+        if (response.data && Array.isArray(response.data)) {
           setPools(response.data)
         } else {
           console.error('Error fetching farm pools:', response.error)
