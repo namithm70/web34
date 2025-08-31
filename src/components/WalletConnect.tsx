@@ -15,9 +15,9 @@ export function WalletConnect() {
   const [isOpen, setIsOpen] = useState(false)
 
   const supportedChains = [
-    { id: 1, name: 'Ethereum' },
-    { id: 56, name: 'BSC' },
-    { id: 97, name: 'BSC Testnet' },
+    { id: 1 as const, name: 'Ethereum' },
+    { id: 56 as const, name: 'BSC' },
+    { id: 97 as const, name: 'BSC Testnet' },
   ]
 
   const currentChain = supportedChains.find(chain => chain.id === chainId)

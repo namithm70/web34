@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { formatUnits, erc20Abi } from 'viem'
 import { Button } from '@/lib/ui'
@@ -111,7 +111,7 @@ export function SwapInterface() {
   }
 
   // Get quote function using API
-  const getQuote = async () => {
+  const getQuote = useCallback(async () => {
     if (!fromToken || !toToken || !fromAmount || parseFloat(fromAmount) <= 0) {
       setSwapQuote(null)
       return
@@ -143,7 +143,7 @@ export function SwapInterface() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [fromToken, toToken, fromAmount, chainId, settings.slippage])
 
   // Get quote when inputs change
   useEffect(() => {
@@ -152,7 +152,7 @@ export function SwapInterface() {
     }, 500)
 
     return () => clearTimeout(timeoutId)
-  }, [fromToken, toToken, fromAmount, settings.slippage, getQuote])
+  }, [getQuote])
 
   // Swap execution
   const { data: hash } = useWriteContract()
