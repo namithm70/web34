@@ -34,10 +34,11 @@ export function TokenSelector({
         const { apiClient } = await import('@/lib/api')
         const response = await apiClient.getTokens(chainId.toString(), searchQuery)
 
-        if (response.data) {
+        if (response.data && Array.isArray(response.data)) {
           setTokens(response.data)
         } else {
           console.error('Error fetching tokens:', response.error)
+          setTokens([]) // Set empty array as fallback
         }
       } catch (error) {
         console.error('Error fetching tokens:', error)
