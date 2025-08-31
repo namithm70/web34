@@ -21,6 +21,8 @@ export function StakingInterface() {
         const { apiClient } = await import('@/lib/api')
         const response = await apiClient.getPools(chainId?.toString(), 'stake')
 
+        console.log('Staking pools response:', response) // Debug log
+
         if (response.data && Array.isArray(response.data)) {
           setPools(response.data)
         } else {
@@ -29,14 +31,14 @@ export function StakingInterface() {
         }
       } catch (error) {
         console.error('Error fetching pools:', error)
+        setPools([]) // Set empty array on error
       } finally {
         setIsLoading(false)
       }
     }
 
-    if (chainId) {
-      fetchPools()
-    }
+    // Always fetch pools, even without chainId
+    fetchPools()
   }, [chainId])
 
   // Filter pools based on selected filter

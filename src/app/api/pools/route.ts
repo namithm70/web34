@@ -130,6 +130,8 @@ export async function GET(request: NextRequest) {
     const chainId = searchParams.get('chainId')
     const type = searchParams.get('type') as 'stake' | 'farm' | null
 
+    console.log('Pools API called with:', { chainId, type }) // Debug log
+
     let filteredPools = pools
 
     if (chainId) {
@@ -139,6 +141,8 @@ export async function GET(request: NextRequest) {
     if (type) {
       filteredPools = filteredPools.filter(pool => pool.type === type)
     }
+
+    console.log('Filtered pools:', filteredPools.length) // Debug log
 
     return NextResponse.json(filteredPools)
   } catch (error) {
