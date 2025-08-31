@@ -129,8 +129,9 @@ export function SwapInterface() {
         settings.slippage.toString()
       )
 
-      if (response.data && 'outAmount' in response.data) {
-        setToAmount(response.data.outAmount)
+      if (response.data && typeof response.data === 'object' && response.data !== null && 'outAmount' in response.data) {
+        const quoteData = response.data as { outAmount: string }
+        setToAmount(quoteData.outAmount)
         setSwapQuote(response.data as SwapQuote)
       } else {
         console.error('Error getting quote:', response.error)
