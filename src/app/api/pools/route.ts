@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Pool, calculateAPR, calculateAPY } from '@/lib/sdk'
+import { Pool } from '@/lib/sdk'
 
 // Mock pool data - in production, this would come from a database or indexer
 const pools: Pool[] = [

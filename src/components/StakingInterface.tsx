@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
-import { Pool, formatPercentage } from '@/lib/sdk'
+import { Pool } from '@/lib/sdk'
 import { PoolCard } from './PoolCard'
 import { StakeModal } from './StakeModal'
 
 export function StakingInterface() {
-  const { address, isConnected, chainId } = useAccount()
+  const { chainId } = useAccount()
   const [pools, setPools] = useState<Pool[]>([])
   const [selectedPool, setSelectedPool] = useState<Pool | null>(null)
   const [showStakeModal, setShowStakeModal] = useState(false)

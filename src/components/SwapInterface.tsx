@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from 'react'
 import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
-import { parseUnits, formatUnits, erc20Abi } from 'viem'
+import { formatUnits, erc20Abi } from 'viem'
 import { Button } from '@/lib/ui'
 import { Token, SwapQuote } from '@/lib/sdk'
 import { TokenSelector } from './TokenSelector'
 import { SwapSettings } from './SwapSettings'
 import { SwapQuote as SwapQuoteDisplay } from './SwapQuote'
-import { ArrowDownIcon, ArrowsRightLeftIcon, Cog6ToothIcon } from '@heroicons/react/24/outline'
+import { ArrowsRightLeftIcon, Cog6ToothIcon } from '@heroicons/react/24/outline'
 
 // Common tokens for BSC and Ethereum
 const COMMON_TOKENS: Token[] = [
@@ -152,10 +152,10 @@ export function SwapInterface() {
     }, 500)
 
     return () => clearTimeout(timeoutId)
-  }, [fromToken, toToken, fromAmount, settings.slippage])
+  }, [fromToken, toToken, fromAmount, settings.slippage, getQuote])
 
   // Swap execution
-  const { writeContract, data: hash } = useWriteContract()
+  const { data: hash } = useWriteContract()
   const { isLoading: isConfirming } = useWaitForTransactionReceipt({
     hash,
   })

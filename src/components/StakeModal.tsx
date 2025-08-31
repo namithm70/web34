@@ -1,6 +1,6 @@
     'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAccount, useReadContract, useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
 import { parseUnits, formatUnits, erc20Abi } from 'viem'
 import { Pool, formatPercentage, formatTokenAmount } from '@/lib/sdk'
@@ -131,7 +131,6 @@ export function StakeModal({ pool, onClose }: StakeModalProps) {
   }
 
   // This staking pool doesn't have locking functionality
-  const lockExpiryDate = null
   const isLocked = false
 
   return (

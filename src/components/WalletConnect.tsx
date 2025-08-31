@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useAccount, useConnect, useDisconnect, useChainId, useSwitchChain } from 'wagmi'
 import { Button } from '@/lib/ui'
-import { formatTokenAmount, shortenAddress } from '@/lib/sdk'
+import { shortenAddress } from '@/lib/sdk'
 import { ChevronDownIcon, WalletIcon } from '@heroicons/react/24/outline'
 
 export function WalletConnect() {

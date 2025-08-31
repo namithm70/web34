@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
-import { Pool, Token, formatPercentage, calculateAPR } from '@/lib/sdk'
+import { Pool } from '@/lib/sdk'
 import { FarmPoolCard } from './FarmPoolCard'
 import { FarmModal } from './FarmModal'
 
 
 
 export function FarmingInterface() {
-  const { address, isConnected, chainId } = useAccount()
+  const { chainId } = useAccount()
   const [pools, setPools] = useState<Pool[]>([])
   const [selectedPool, setSelectedPool] = useState<Pool | null>(null)
   const [showFarmModal, setShowFarmModal] = useState(false)

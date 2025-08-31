@@ -2,7 +2,7 @@
 
 import { Pool, formatPercentage, formatUSD } from '@/lib/sdk'
 import { Button } from '@/lib/ui'
-import { LockClosedIcon, CurrencyDollarIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { LockClosedIcon, ClockIcon } from '@heroicons/react/24/outline'
 
 interface PoolCardProps {
   pool: Pool

@@ -1,8 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAccount, useBalance } from 'wagmi'
-import { formatUSD, formatTokenAmount } from '@/lib/sdk'
 import { Button } from '@/lib/ui'
 import { PortfolioOverview } from './PortfolioOverview'
 import { PositionsList } from './PositionsList'
@@ -60,7 +59,7 @@ const MOCK_PORTFOLIO = {
 
 export function PortfolioDashboard() {
   const { address, isConnected } = useAccount()
-  const [portfolio, setPortfolio] = useState(MOCK_PORTFOLIO)
+  const [portfolio] = useState(MOCK_PORTFOLIO)
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [activeTab, setActiveTab] = useState<'overview' | 'positions' | 'history'>('overview')
 

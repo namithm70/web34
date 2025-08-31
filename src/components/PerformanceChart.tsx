@@ -66,7 +66,7 @@ export function PerformanceChart({ history }: PerformanceChartProps) {
       {/* Simple Chart */}
       <div className="relative h-64 mb-4">
         <div className="absolute inset-0 flex items-end justify-between">
-          {history.map((point, index) => {
+          {history.map((point) => {
             const height = range > 0 ? ((point.value - minValue) / range) * 100 : 50
             return (
               <div

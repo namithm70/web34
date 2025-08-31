@@ -2,7 +2,7 @@
 
 import { Pool, formatPercentage, formatUSD } from '@/lib/sdk'
 import { Button } from '@/lib/ui'
-import { CurrencyDollarIcon, ClockIcon, ChartBarIcon } from '@heroicons/react/24/outline'
+import { ClockIcon, ChartBarIcon } from '@heroicons/react/24/outline'
 
 interface FarmPoolCardProps {
   pool: Pool
